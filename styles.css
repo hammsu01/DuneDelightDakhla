@@ -132,19 +132,27 @@ body {
     font-weight: 600;
     font-size: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background-color:#FFF4E6;
+    background-color: #FFF4E6;
+    color: #4B3D32; /* Set text color */
+    text-decoration: none; /* Remove underline */
 }
 
 /* Styling for mobile devices */
 @media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;  /* Stack buttons vertically */
+        gap: 20px; /* Space between buttons */
+    }
+
     .hero-actions .btn,
     .hero-actions .btn-ghost {
-        padding: 18px 36px; /* Increase padding for both buttons */
-        font-size: 20px;     /* Increase font size for both buttons */
-        background-color:#FFF4E6;
+        padding: 18px 36px;
+        font-size: 20px;
+        background-color: #FFF4E6;
+        color: #4B3D32;
+        text-decoration: none; /* Remove underline */
     }
 }
-
 
 .hero-actions .btn:hover,
 .hero-actions .btn-ghost:hover {

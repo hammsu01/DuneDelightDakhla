@@ -1,249 +1,343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DUNE Delight - Kite Guest House</title>
-<meta name="description" content="DUNE Delight - Kite Guest House — sea-facing rooms, kite lessons, gear rental and local trips." />
+<meta name="description" content="DUNE Delight - Kite Guest House">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<!-- Fallback icon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏄‍♂️</text></svg>">
+<style>
+  /* Split container for form + map */
+  .split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .split > div {
+    flex: 1 1 45%;
+  }
+  .map-embed iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+  }
+  @media (max-width: 768px) {
+    .split > div {
+      flex: 1 1 100%;
+    }
+  }
+</style>
 </head>
+<script>
+    // Get all booking links (hero or room cards)
+    document.querySelectorAll('a[href="#contact"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Check if link has a data-room attribute
+        const room = this.getAttribute('data-room');
+        if (room) {
+          const roomSelect = document.querySelector('#booking-form select[name="room"]');
+          if (roomSelect) {
+            roomSelect.value = room;
+          }
+        }
+      });
+    });
+  </script>
+  
 <body>
+
+<!-- HEADER -->
 <header class="site-header">
-<div class="container header-inner">
-<a class="logo" href="#home">DUNE Delight - Kite Guest House</a>
-<nav class="nav" id="primary-nav">
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#rooms">Rooms</a></li>
-<li><a href="#kiteschool">Kite School</a></li>
-<li><a href="#gallery">Gallery</a></li>
-<li><a href="#contact">Booking</a></li>
-</ul>
-</nav>
-<button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-</div>
+  <div class="container header-inner">
+    <a class="logo" href="#home">DUNE Delight</a>
+    <nav class="nav" id="primary-nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#contact">Booking</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
 </header>
 
 <main>
+
 <!-- HERO -->
 <section id="home" class="hero">
-<div class="container hero-grid">
-<div class="hero-text">
-<h1 class="site-title">DUNE Delight <br>
-    <span class="subtitle">Kite Guest House</span></h1>
-<p class="tagline">Ride the wind by day, relax at night.</p>
-<p>A kite escape — three rooms, a thousand sunsets. Where the wind lives and you feel at home.
-    Stay — kite lessons for all levels — equipment rental.</p>
-<div class="hero-actions">
-<a class="btn" href="#rooms">View Rooms</a>
-<a class="btn btn-ghost" href="#kiteschool">Book a Lesson</a>
-</div>
-</div>
-<div class="hero-media">
-<img alt="Speed Spot" src="images/speedspot.jpeg">
-</div>
-</div>
-</section>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>
+          <span class="sand-text">DUNE Delight</span>
+          <span class="subtitle">Kite Guest House</span>
+        </h1>
+        <p class="tagline">Catch the wind by day, unwind by night.</p>
+        <p class="hero-description">
+    Relax in three cozy, character-filled rooms, watch sunsets that take your breath away, and explore a kiteboarding paradise. 
+    With lessons, gear, and local adventures ready for you, all that’s left is to show up and enjoy!
+            
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#rooms">Explore Rooms</a>
+          <a class="btn btn-ghost" href="#contact">Book Your Stay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
 <!-- ABOUT -->
-<section id="about" class="section container">
-<div class="split">
-<div>
-<h2>About DUNE Delight - Kite Guest House</h2>
-<p>Located steps from the beach, DUNE Delight - Kite Guest House is a small, family-run property tailored to kite surfers and ocean lovers. We offer cozy rooms, fresh breakfasts, local tips, and a friendly kite school run by certified instructors.</p>
-<ul class="features">
-<li>Sea-facing rooms & private bungalows</li>
-<li>Kite lessons for beginners to advanced</li>
-<li>Equipment rental & storage</li>
-<li>Surf & sunset boat tours</li>
-</ul>
-</div>
-<div class="about-photo">
-<img alt="Guest house garden" src="images/garden2.jpeg">
-</div>
-</div>
-</section>
+<section id="about" class="section container" style="background: #F7EFE6; border-radius: 12px; padding: 60px 20px; box-shadow: var(--shadow);">
+    <div class="split">
+      <!-- Text Content -->
+      <div>
+        <h2 style="color: #B88C60; font-size: 2.4rem; margin-bottom: 1rem;">About <span style="color: #D9B382;">DUNE Delight</span></h2>
+        <p style="color: #4B3D32; font-size: 1.1rem; line-height: 1.7;">
+          Nestled between the lagoon and the ocean, and just minutes from the city, <strong>DUNE Delight</strong> is your cozy base for kitesurfing and adventure in Dakhla. With only three rooms, we offer a warm, authentic experience far from the crowds. Whether you’re seeking lessons, gear rental, or simply soaking in the local vibe, every moment here is crafted to delight.
+        </p>
+        <ul class="features" style="color: #7A5C42; font-size: 1rem; margin-top: 1rem;">
+          <li>Three charming rooms with ocean views</li>
+          <li>Kite lessons for all levels</li>
+          <li>Equipment rental & secure storage</li>
+          <li>Kite trips & adventurous expeditions</li>
+        </ul>
+      </div>
+      <!-- Image -->
+      <div class="about-photo">
+        <img src="images/DueDelight.JPEG" alt="Founder" 
+        style="border-radius: 12px; box-shadow: var(--shadow); width: 100%; max-width: 200px; object-fit: cover;">
+         </div>
+    </div>
+  </section>
+  
 
-<!-- ROOMS -->
-<section id="rooms" class="section rooms container">
-<h2>Rooms & Rates</h2>
-<p class="muted">Simple, comfortable stays with ocean views. Rates shown per night (EUR).</p>
-<div class="cards">
-<article class="card">
-<img alt="Sea view room" src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1000&q=60">
-<div class="card-body">
-<h3>Sea View Double</h3>
-<p class="price">€75 / night</p>
-<p>Double bed, balcony with sea view, ensuite bathroom, AC & Wi-Fi.</p>
-<a class="btn small" href="#contact" data-room="Sea View Double">Book</a>
-</div>
-</article>
+  <section id="rooms" class="section rooms container">
+    <h2 style="color: #B88C60; font-size: 2.4rem; margin-bottom: 1rem;">Rooms <span style="color: #D9B382;">& Rates</span></h2>
+    <p class="muted">Choose from 3 cozy rooms or book the entire villa. Rates are shown per night (EUR).</p>    
+    <div class="cards">
+      <!-- Row 1 -->
+      <article class="card">
+        <img src="images/rooms/Breeze_Website.JPEG" alt="Breeze Room">
+        <div class="card-body">
+          <h3>Breeze Room</h3>
+          <p class="price">€40 / night</p>
+          <p>Choose between a double bed or two single beds. Enjoy shared access to the bathroom, kitchen, lounge, and garden. Perfect for up to 2 guests.
+          </p>
+          <a class="btn small" href="#contact" data-room="Breeze Room">Book</a>
+        </div>
+      </article>
+  
+      <article class="card">
+        <img src="images/rooms/Blossom_website.JPEG" alt="Blossom Room">
+        <div class="card-body">
+          <h3>Blossom Room</h3>
+          <p class="price">€40 / night</p>
+          <p>Comfortable room with a double bed or two single beds. Share the bathroom, kitchen, lounge, and garden with other guests. Ideal for up to 2 guests.
+          </p>
+          <a class="btn small" href="#contact" data-room="Blossom Room">Book</a>
+        </div>
+      </article>
+  
+      <article class="card">
+        <img src="images/rooms/DuneSuit_1.JPEG" alt="Dune Suite">
+        <div class="card-body">
+          <h3>Dune Suite</h3>
+          <p class="price">€55 / night</p>
+          <p>Double bed with private bathroom. Guests can also enjoy the shared kitchen, lounge, and garden. Suitable for up to 2 guets.
+          </p>
+          <a class="btn small" href="#contact" data-room="Dune Suite">Book</a>
+        </div>
+      </article>
+  
+      <article class="card">
+        <div class="card-slider">
+            <img src="images/rooms/Entire_House/1.JPEG"alt="Room view 1">
+            <img src="images/rooms/Entire_House/2.JPEG" alt="Room view 2">
+            <img src="images/rooms/Entire_House/2.5.JPEG" alt="Room view 2.5">
+            <img src="images/rooms/Entire_House/3.JPEG"alt="Room view 3">
+            <img src="images/rooms/Entire_House/5.JPEG" alt="Room view 5">
+            <img src="images/rooms/Entire_House/7.5.JPEG" alt="Room view 7.5">
+            <img src="images/rooms/Entire_House/7.JPEG"alt="Room view 7">
+            <img src="images/rooms/Entire_House/8.5.JPEG" alt="Room view 8.5">
+            <img src="images/rooms/Entire_House/10.JPEG" alt="Room view 10">
+            <img src="images/rooms/Entire_House/12.JPEG" alt="Room view 12">
+          </div>
+        <div class="card-body">
+          <h3>Entire Villa</h3>
+          <p class="price">€140 / night</p>
+          <p>Rent the entire villa, offering 3 bedrooms, 2 bathrooms, 3 toilets, a fully equipped kitchen, 
+            a cozy living room, and a lovely garden. Accommodates up to 7 guests comfortably.
+          </p>
+          <a class="btn small" href="#contact" data-room="Entire Villa">Book</a>
+        </div>
+      </article>
+  
+      <!-- Row 2 -->
+      <article class="card">
+        <img src="images/specialDeals/Groupe.jpg" alt="Semi-Private Package">
+        <div class="card-body">
+          <h3>SEMI-PRIVATE PACKAGE</h3>
+          <article class="package-card">
+            <p class="price">€560 / person</p>
+            <ul class="package-details">
+              <li>7 days accommodation (shared dorm, no food included)</li>
+              <li>10h semi-private kite lessons</li>
+              <li>All equipment included</li>
+              <li>Spot transfers & assistance</li>
+            </ul>
+          </article>
+                      <a class="btn" href="#contact" data-package="Semi-Private Package">Book</a>
+        </div>
+      </article>
+     
+  
+        <article class="card">
+            <img src="images/specialDeals/private.jpg" alt="Private Package">
+            <div class="card-body">
+              <h3>PRIVATE PACKAGE</h3>
+              <article class="package-card">
+                <p class="price">€790 / person</p>
+                <ul class="package-details">
+                  <li>7 days accommodation (shared dorm, no food included)</li>
+                  <li>10h 1-on-1 kite lessons</li>
+                  <li>All equipment included</li>
+                  <li>Spot transfers & assistance</li>
+                </ul>
+            </article>
+                <a class="btn" href="#contact" data-room="Private Package">Book</a>
+            </div>
+          </article>
+  
+    </div>
+  </section>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Slider</title>
+  <link rel="stylesheet" href="style.css"> <!-- your CSS file -->
+</head>
+<body>
+  
 
-<article class="card">
-<img alt="Bungalow" src="https://images.unsplash.com/photo-1505692794400-4d4b4f8a0ccf?auto=format&fit=crop&w=1000&q=60">
-<div class="card-body">
-<h3>Garden Bungalow</h3>
-<p class="price">€60 / night</p>
-<p>Private bungalow, small terrace, fan, ideal for solo travellers or couples.</p>
-<a class="btn small" href="#contact" data-room="Garden Bungalow">Book</a>
-</div>
-</article>
+  <!-- JS goes here -->
+  <script>
+    document.querySelectorAll('.card-slider').forEach(slider => {
+      const images = slider.querySelectorAll('img');
+      let current = 0;
+      images[current].classList.add('active');
 
-<article class="card">
-<img alt="Dorm style room" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=60">
-<div class="card-body">
-<h3>Shared Dorm</h3>
-<p class="price">€30 / night</p>
-<p>6-bed mixed dorm with shared bathroom — budget-friendly and social.</p>
-<a class="btn small" href="#contact" data-room="Shared Dorm">Book</a>
-</div>
-</article>
-</div>
-</section>
+      setInterval(() => {
+        images[current].classList.remove('active');
+        current = (current + 1) % images.length;
+        images[current].classList.add('active');
+      }, 10000); // every 10 seconds
+    });
+  </script>
 
-<!-- KITE SCHOOL -->
-<section id="kiteschool" class="section kite container">
-<h2>Kite School & Activities</h2>
-<p class="muted">Certified instructors, small groups, and tailored lessons for every level.</p>
-<div class="activity-grid">
-<div class="activity">
-<h3>Beginner Lessons</h3>
-<p>Full introduction: safety, kite control, body-dragging and water starts. 3-hour sessions.</p>
-</div>
-<div class="activity">
-<h3>Advanced Coaching</h3>
-<p>Jump & trick coaching, kitesurf tactics and personalized video feedback.</p>
-</div>
-<div class="activity">
-<h3>Gear Rental</h3>
-<p>Boards, kites, harnesses — daily and weekly rates available. Storage included for guests.</p>
-</div>
-<div class="activity">
-<h3>Local Trips</h3>
-<p>Boat trips, downwinders and sunset tours to hidden spots—ask at reception.</p>
-</div>
-</div>
-</section>
+</body>
+</html>
 
-<!-- GALLERY -->
-<section id="gallery" class="section container">
-<h2>Gallery</h2>
-<p class="muted">Moments from our guests & instructors—click to enlarge.</p>
-<div class="gallery-grid" id="gallery-grid">
-<!-- images are clickable to open lightbox -->
-<figure><img alt="Kite in air" src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=800&q=60"></figure>
-<figure><img alt="Sunset kite" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=60"></figure>
-<figure><img alt="Bungalow terrace" src="https://images.unsplash.com/photo-1496483353456-90997957cf99?auto=format&fit=crop&w=800&q=60"></figure>
-<figure><img alt="Group lesson" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=60"></figure>
-</div>
+  
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox" aria-hidden="true">
-<button class="lightbox-close" id="lb-close" aria-label="Close">✕</button>
-<img id="lb-img" alt="">
-<div id="lb-caption" class="lightbox-caption"></div>
-</div>
-</section>
+
 
 <!-- CONTACT / BOOKING -->
 <section id="contact" class="section container contact-section">
-<h2>Booking & Contact</h2>
-<div class="split">
-<div>
-<p>If you'd like to book, send us a message or use the booking form. We usually reply within 24 hours.</p>
-<ul class="contact-info">
-<li><strong>Address:</strong> Beachfront Lane, Kite Bay</li>
-<li><strong>Phone:</strong> +33 6 12 34 56 78</li>
-<li><strong>Email:</strong> <a href="mailto:dunedelightdakhla@gmail.com">dunedelightdakhla@gmail.com</a></li>
-</ul>
-<div class="map-embed" aria-hidden="false">
-<!-- Replace the src with your actual Google Maps embed or leave as placeholder -->
-<iframe title="Guest house location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.36040308207!2d-1.8762168!3d43.2964823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDE4JzE2LjgiTiAxMcKwMDAnMzUuMCJF!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" loading="lazy"></iframe>
-</div>
-</div>
-
-
-<form id="booking-form" class="booking-form" method="post" action="booking_handler.php" enctype="multipart/form-data">
-    <label>
-      Full name
-      <input type="text" name="name" id="name" required placeholder="Your full name">
-    </label>
-  
-    <label>
-      Address
-      <textarea name="address" id="address" rows="2" required placeholder="Street, city, postal code, country"></textarea>
-    </label>
-  
-    <label>
-      Email
-      <input type="email" name="email" id="email" required placeholder="you@email.com">
-    </label>
-  
-    <label>
-      Phone
-      <input type="tel" name="phone" id="phone" placeholder="+33 6 12 34 56 78">
-    </label>
-  
-    <label>
-      Room preference
-      <select name="room" id="room" required>
-        <option value="">-- Select room --</option>
-        <option>Sea View Double</option>
-        <option>Garden Bungalow</option>
-        <option>Shared Dorm</option>
-      </select>
-    </label>
-  
-    <label class="dates">
-      Check-in
-      <input type="date" id="checkin" name="checkin" required>
-      Check-out
-      <input type="date" id="checkout" name="checkout" required>
-    </label>
-  
-    <label>
-      Passport photo (JPG or PNG)
-      <input type="file" name="passport_photo" id="passport_photo" accept="image/png, image/jpeg" required>
-    </label>
-  
-    <label>
-      Message
-      <textarea name="message" id="message" rows="4" placeholder="Anything we should know?"></textarea>
-    </label>
-  
-    <label class="consent">
-      <input type="checkbox" name="consent" required>
-      I consent to the collection of my personal data for booking and guest registration purposes.
-    </label>
-  
-    <div class="form-actions">
-      <button class="btn" type="submit">Send Booking Request</button>
-      <button class="btn btn-ghost" type="reset">Clear</button>
+    <h2 style="color: #B88C60; font-size: 2.4rem; margin-bottom: 1rem;">Booking <span style="color: #D9B382;">& Contact</span></h2>
+    <!-- Contact Info -->
+    <div class="contact-intro">
+      <p>If you'd like to book, send us a message or use the booking form. We usually reply within 24 hours.</p>
+      <ul class="contact-info">
+        <li><strong>Address:</strong> La Verda 19, Dakhla, Morocco</li>
+        <li><strong>Phone:</strong> <a href="tel:+41792636273">+41 79 263 62 73</a></li>
+        <li><strong>Email:</strong> <a href="mailto:dunedelightdakhla@gmail.com">dunedelightdakhla@gmail.com</a></li>
+      </ul>
     </div>
   
-    <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
-  </form>
+    <!-- Split Layout: Left = Map+Windguru, Right = Booking Form -->
+    <div class="contact-split">
+      <div class="left-side">
+        <!-- Map -->
+        <div class="map-embed">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d58427.383707102344!2d-15.950211931821778!3d23.75766590673184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQ3JzI1LjciTiAxNcKwNTMnNTguMiJX!5e0!3m2!1sde!2sch!4v1761323068638!5m2!1sde!2sch"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+  
+        <!-- Windguru -->
+        <div class="windguru-forecast">
+          <script id="wg_fwdg_501311_100">
+            (function (window, document) {
+              var loader = function () {
+                var arg = ["s=501311","m=100","uid=wg_fwdg_501311_100"];
+                var script = document.createElement("script");
+                var tag = document.getElementsByTagName("script")[0];
+                script.src = "https://www.windguru.cz/js/widget.php?" + arg.join("&");
+                tag.parentNode.insertBefore(script, tag);
+              };
+              window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+            })(window, document);
+          </script>
+        </div>
+      </div>
+  
+      <!-- Booking Form -->
+      <div class="right-side">
+        <form id="booking-form" class="booking-form" method="post" action="booking_handler.php">
+          <h3>Booking Request</h3>
+          <label>Full name<input type="text" name="name" required placeholder="Your full name"></label>
+          <label>Email<input type="email" name="email" required placeholder="you@email.com"></label>
+          <label>Phone number<input type="tel" name="phone" placeholder="+41 12 345 67 89"></label>
+          <label>Room or package
+            <select name="room" required>
+              <option value="">-- Select --</option>
+              <option>Breeze Room</option>
+              <option>Blossom Room</option>
+              <option>Dune Suite</option>
+              <option>Entire Villa</option>
+              <option>Semi-Private Package</option>
+              <option>Private Package</option>
+            </select>
+          </label>
+          <div class="dates">
+            <label>Check-in<input type="date" name="checkin" required></label>
+            <label>Check-out<input type="date" name="checkout" required></label>
+          </div>
+          <label>Message<textarea name="message" rows="3" placeholder="Special requests..."></textarea></label>
+          <label class="consent">
+            <input type="checkbox" name="consent" required>
+            I agree to the 
+            <a href="terms.html" target="_blank">Terms & Conditions</a> and 
+            <a href="privacy.html" target="_blank">Privacy Policy</a>.
+          </label>
+          <div class="form-actions">
+            <button class="btn" type="submit">Send</button>
+            <button class="btn btn-ghost" type="reset">Clear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+<footer style="
+background-color: #F7E9D7; 
+color: #4B3D32; 
+text-align: center; 
+padding: 20px 10px; 
+font-size: 0.9rem;
+border-top: 1px solid #EDE1D7;
+">
+&copy; 2025 Designed by <strong>DUNE Delight</strong> with love, water, and wind 🌊💨❤️
+</footer>
 
   
-
-<div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
-</form>
-</div>
-</section>
-
-<footer class="site-footer">
-<div class="container footer-inner">
-<p>© <span id="year"></span> DUNE Delight - Kite Guest House — Built with wind & care.</p>
-<p class="muted">Follow us: <a href="#" aria-label="Instagram">Instagram</a> · <a href="#" aria-label="Facebook">Facebook</a></p>
-</div>
-</footer>
-</main>
-
-<script src="script.js"></script>
-</body>
-</html>

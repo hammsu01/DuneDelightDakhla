@@ -134,6 +134,14 @@ body {
   font-size: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+/* Styling for mobile devices */
+@media (max-width: 768px) {
+    .btn-ghost {
+        padding: 18px 36px; /* Make the button larger on mobile */
+        font-size: 20px;     /* Increase the font size */
+    }
+}
+
 .hero-actions .btn:hover,
 .hero-actions .btn-ghost:hover {
   transform: translateY(-2px);
@@ -215,9 +223,14 @@ h2 {
   border: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
 }
-
-/* Card slider */
-.card-slider { position: relative; width: 100%; height: 180px; overflow: hidden; border-radius: var(--radius); }
+/* Card Slider */
+.card-slider {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
 .card-slider img {
   position: absolute;
   top: 0;
@@ -228,7 +241,10 @@ h2 {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
-.card-slider img.active { opacity: 1; }
+.card-slider img.active {
+  opacity: 1;
+}
+
 
 /* Gallery */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 10px; margin-top: 14px; }
@@ -264,6 +280,27 @@ h2 {
 #map {
   width: 100vw;  /* 100% of viewport width */
   height: 50vh;  /* 50% of viewport height */
+}
+
+
+/* Default styling for larger screens (e.g., desktop) */
+h1 {
+    font-size: 48px; /* Adjust as needed */
+    text-align: center;
+}
+
+/* Responsive styling for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px; /* Smaller font size for tablets and smaller devices */
+    }
+}
+
+/* For very small screens (e.g., mobile phones in portrait mode) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Even smaller font size for mobile phones */
+    }
 }
 
 /* Responsive */

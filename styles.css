@@ -142,6 +142,7 @@ body {
     .hero-actions {
         flex-direction: column;  /* Stack buttons vertically */
         gap: 20px; /* Space between buttons */
+        width: 100%;
     }
 
     .hero-actions .btn,

@@ -125,6 +125,14 @@ body {
   color: var(--text);
   margin-bottom: 24px;
 }
+/* Hero Actions */
+.hero-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    justify-content: center; /* Center buttons horizontally by default */
+}
+
+/* Buttons */
 .hero-actions .btn,
 .hero-actions .btn-ghost {
     border-radius: var(--radius);
@@ -135,26 +143,30 @@ body {
     background-color: #FFF4E6;
     color: #4B3D32; /* Set text color */
     text-decoration: none; /* Remove underline */
+    width: auto; /* Default width */
 }
 
 /* Styling for mobile devices */
 @media (max-width: 768px) {
+    /* Ensure buttons stack vertically */
     .hero-actions {
         flex-direction: column;  /* Stack buttons vertically */
         gap: 20px; /* Space between buttons */
-        width: 100%;
+        width: 100%; /* Make sure the container takes full width */
     }
 
     .hero-actions .btn,
     .hero-actions .btn-ghost {
-        padding: 18px 36px;
-        font-size: 20px;
+        padding: 18px 36px; /* Adjust padding for mobile */
+        font-size: 20px;     /* Larger font size */
+        width: 100%;         /* Make buttons full-width */
         background-color: #FFF4E6;
         color: #4B3D32;
-        text-decoration: none; /* Remove underline */
+        text-decoration: none;
     }
 }
 
+/* Hover effect */
 .hero-actions .btn:hover,
 .hero-actions .btn-ghost:hover {
   transform: translateY(-2px);

@@ -31,8 +31,8 @@ main {
   padding-top: 0px; /* remove extra padding, hero goes under header */
 }
 
-.sand-text { color: #C2B280; }
-.subtitle { color: #fff; font-weight: 300; }
+.sand-text { color: #fff;; }
+.subtitle { color: #E0E0E0; font-weight: 300; }
 
 .container {
   max-width: var(--container);
@@ -139,14 +139,14 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.10);
   z-index: 0;
 }
 
 .hero-text {
   position: relative;
   z-index: 1;
-  background: rgba(255,245,230,0.85);
+  background: none;
   padding: 30px 25px;
   border-radius: var(--radius);
   max-width: 600px;
@@ -166,7 +166,7 @@ main {
   display: block;
   font-size: 1.5rem;
   font-weight: 500;
-  color: #D9B382;
+  color: #fff;;
   margin-top: 4px;
   line-height: 1.2;
 }
@@ -174,7 +174,7 @@ main {
 .hero-text .tagline {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #C2B280;
+  color: #D3D3D3;
   margin: 15px 0 10px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
@@ -182,7 +182,7 @@ main {
 .hero-text .hero-description {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--text);
+  color: #fff;
   margin-bottom: 20px;
 }
 
@@ -318,7 +318,7 @@ main {
 }
 
 .card-body h3 { margin: 0 0 6px; font-size: 1.15rem; color: var(--text); }
-.card-body .price { color: #D9B382; font-weight: 700; margin-bottom: 8px; }
+.card-body .price { color: #B88C60; font-weight: 700; margin-bottom: 8px; }
 .card-body .btn {
   display: inline-flex;
   align-items: center;
